@@ -1,309 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Database & Web Technologies Guide</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
 
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        min-height: 100vh;
+      }
+
+      .header {
+        text-align: center;
+        padding: 40px 0;
+        border-bottom: 3px solid #333;
+        margin-bottom: 40px;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      .section {
+        margin-bottom: 50px;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        border: 1px solid #ddd;
+      }
+
+      .section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eee;
+        color: #333;
+      }
+
+      .section h3 {
+        font-size: 1.4em;
+        margin: 25px 0 15px 0;
+        color: #333;
+      }
+
+      .section h4 {
+        font-size: 1.2em;
+        margin: 20px 0 10px 0;
+        color: #555;
+      }
+
+      pre {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 15px 0;
+        font-size: 0.9em;
+        border: 1px solid #ddd;
+      }
+
+      code {
+        background-color: #f8f9fa;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.9em;
+        border: 1px solid #ddd;
+      }
+
+      ul,
+      ol {
+        margin-left: 30px;
+        margin-bottom: 15px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background-color: white;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+      }
+
+      .toc {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+      }
+
+      .toc h3 {
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .toc ul {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      .toc a {
+        color: #333;
+        text-decoration: none;
+        padding: 5px 0;
+        display: block;
+      }
+
+      .toc a:hover {
+        text-decoration: underline;
+      }
+
+      .go-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #333;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .go-to-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .go-to-top:hover {
+        background-color: #555;
+        transform: translateY(-2px);
+      }
+
+      .header {
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 50px;
+        border-top: 2px solid #eee;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .header p {
+        margin-bottom: 15px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .credits {
+        margin-bottom: 20px;
+      }
+
+      .credits .love {
+        color: #e74c3c;
+      }
+
+      .github-btn {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .github-btn:hover {
+        background-color: #555;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .github-btn:before {
+        content: "⭐ ";
+        font-size: 16px;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            min-height: 100vh;
-        }
-
-        .header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 3px solid #333;
-            margin-bottom: 40px;
+          padding: 10px;
         }
 
         .header h1 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            color: #666;
+          font-size: 2em;
         }
 
         .section {
-            margin-bottom: 50px;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            background-color: white;
-            border: 1px solid #ddd;
+          padding: 20px;
         }
-
-        .section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-            color: #333;
-        }
-
-        .section h3 {
-            font-size: 1.4em;
-            margin: 25px 0 15px 0;
-            color: #333;
-        }
-
-        .section h4 {
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-            color: #555;
-        }
-
-        pre {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin: 15px 0;
-            font-size: 0.9em;
-            border: 1px solid #ddd;
-        }
-
-        code {
-            background-color: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.9em;
-            border: 1px solid #ddd;
-        }
-
-        ul, ol {
-            margin-left: 30px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background-color: white;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-        }
-
-        .toc {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border: 1px solid #ddd;
-        }
-
-        .toc h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .toc ul {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .toc a {
-            color: #333;
-            text-decoration: none;
-            padding: 5px 0;
-            display: block;
-        }
-
-        .toc a:hover {
-            text-decoration: underline;
-        }
-
-        .go-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #333;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .go-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .go-to-top:hover {
-            background-color: #555;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .section {
-                padding: 20px;
-            }
-        }
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Database & Web Technologies Guide</h1>
-            <p>A comprehensive guide covering SQL, NoSQL, CSS, and HTML</p>
+      <div class="header">
+        <h1>Database & Web Technologies Guide</h1>
+        <p>A comprehensive guide covering SQL, NoSQL, CSS, and HTML</p>
+        <div class="credits">
+          <p>
+            Made with <span class="love">❤️</span> by Grok Code 1 & Sonnet 4
+          </p>
+          <p>Prompted & Modified by <strong>Harsha</strong></p>
+          <p>Reference Credits: Thanks to <strong>Sai Anirudh Karre</strong></p>
         </div>
+        <a
+          href="https://github.com/harsha-iiith/QUIZ-1-SSD-29aug25"
+          target="_blank"
+          class="github-btn"
+        >
+          please leave a star on GitHub
+        </a>
+      </div>
 
-        <div class="toc">
-            <h3>Table of Contents</h3>
-            <ul>
-                <li><a href="#sql-theory">1. SQL Theory</a></li>
-                <li><a href="#sql-activity">2. SQL Activity</a></li>
-                <li><a href="#nosql-theory">3. NoSQL Theory</a></li>
-                <li><a href="#nosql-activity">4. NoSQL Activity</a></li>
-                <li><a href="#css-theory">5. CSS Theory</a></li>
-                <li><a href="#css-activity">6. CSS Activity</a></li>
-                <li><a href="#html-theory">7. HTML Theory</a></li>
-                <li><a href="#html-activity">8. HTML Activity</a></li>
-            </ul>
-        </div>
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a href="#sql-theory">1. SQL Theory</a></li>
+          <li><a href="#sql-activity">2. SQL Activity</a></li>
+          <li><a href="#nosql-theory">3. NoSQL Theory</a></li>
+          <li><a href="#nosql-activity">4. NoSQL Activity</a></li>
+          <li><a href="#css-theory">5. CSS Theory</a></li>
+          <li><a href="#css-activity">6. CSS Activity</a></li>
+          <li><a href="#html-theory">7. HTML Theory</a></li>
+          <li><a href="#html-activity">8. HTML Activity</a></li>
+        </ul>
+      </div>
 
-        <section id="sql-theory" class="section">
-            <h2>SQL Theory</h2>
-            <div id="sql-theory-content">Loading SQL theory content...</div>
-        </section>
+      <section id="sql-theory" class="section">
+        <h2>SQL Theory</h2>
+        <div id="sql-theory-content">Loading SQL theory content...</div>
+      </section>
 
-        <section id="sql-activity" class="section">
-            <h2>SQL Activity</h2>
-            <div id="sql-activity-content">Loading SQL activity content...</div>
-        </section>
+      <section id="sql-activity" class="section">
+        <h2>SQL Activity</h2>
+        <div id="sql-activity-content">Loading SQL activity content...</div>
+      </section>
 
-        <section id="nosql-theory" class="section">
-            <h2>NoSQL Theory</h2>
-            <div id="nosql-theory-content">Loading NoSQL theory content...</div>
-        </section>
+      <section id="nosql-theory" class="section">
+        <h2>NoSQL Theory</h2>
+        <div id="nosql-theory-content">Loading NoSQL theory content...</div>
+      </section>
 
-        <section id="nosql-activity" class="section">
-            <h2>NoSQL Activity</h2>
-            <div id="nosql-activity-content">Loading NoSQL activity content...</div>
-        </section>
+      <section id="nosql-activity" class="section">
+        <h2>NoSQL Activity</h2>
+        <div id="nosql-activity-content">Loading NoSQL activity content...</div>
+      </section>
 
-        <section id="css-theory" class="section">
-            <h2>CSS Theory</h2>
-            <div id="css-theory-content">Loading CSS theory content...</div>
-        </section>
+      <section id="css-theory" class="section">
+        <h2>CSS Theory</h2>
+        <div id="css-theory-content">Loading CSS theory content...</div>
+      </section>
 
-        <section id="css-activity" class="section">
-            <h2>CSS Activity</h2>
-            <div id="css-activity-content">Loading CSS activity content...</div>
-        </section>
+      <section id="css-activity" class="section">
+        <h2>CSS Activity</h2>
+        <div id="css-activity-content">Loading CSS activity content...</div>
+      </section>
 
-        <section id="html-theory" class="section">
-            <h2>HTML Theory</h2>
-            <div id="html-theory-content">Loading HTML theory content...</div>
-        </section>
+      <section id="html-theory" class="section">
+        <h2>HTML Theory</h2>
+        <div id="html-theory-content">Loading HTML theory content...</div>
+      </section>
 
-        <section id="html-activity" class="section">
-            <h2>HTML Activity</h2>
-            <div id="html-activity-content">Loading HTML activity content...</div>
-        </section>
+      <section id="html-activity" class="section">
+        <h2>HTML Activity</h2>
+        <div id="html-activity-content">Loading HTML activity content...</div>
+      </section>
     </div>
 
     <button class="go-to-top" id="goToTopBtn" title="Go to top">↑</button>
 
     <script>
-        async function loadMarkdownContent() {
-            const sections = ['sql', 'nosql', 'css', 'html'];
-            const fileTypes = ['theory', 'activity'];
-            
-            for (const section of sections) {
-                for (const fileType of fileTypes) {
-                    try {
-                        const response = await fetch(`${section}/${fileType}.md`);
-                        if (response.ok) {
-                            const markdown = await response.text();
-                            const html = marked.parse(markdown);
-                            document.getElementById(`${section}-${fileType}-content`).innerHTML = html;
-                        } else {
-                            document.getElementById(`${section}-${fileType}-content`).innerHTML = 
-                                `<p>Error loading ${section.toUpperCase()} ${fileType} content.</p>`;
-                        }
-                    } catch (error) {
-                        console.error(`Error loading ${section} ${fileType} content:`, error);
-                        document.getElementById(`${section}-${fileType}-content`).innerHTML = 
-                            `<p>Error loading ${section.toUpperCase()} ${fileType} content.</p>`;
-                    }
-                }
+      async function loadMarkdownContent() {
+        const sections = ["sql", "nosql", "css", "html"];
+        const fileTypes = ["theory", "activity"];
+
+        for (const section of sections) {
+          for (const fileType of fileTypes) {
+            try {
+              const response = await fetch(`${section}/${fileType}.md`);
+              if (response.ok) {
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                document.getElementById(
+                  `${section}-${fileType}-content`
+                ).innerHTML = html;
+              } else {
+                document.getElementById(
+                  `${section}-${fileType}-content`
+                ).innerHTML = `<p>Error loading ${section.toUpperCase()} ${fileType} content.</p>`;
+              }
+            } catch (error) {
+              console.error(
+                `Error loading ${section} ${fileType} content:`,
+                error
+              );
+              document.getElementById(
+                `${section}-${fileType}-content`
+              ).innerHTML = `<p>Error loading ${section.toUpperCase()} ${fileType} content.</p>`;
             }
+          }
         }
+      }
 
-        document.addEventListener('DOMContentLoaded', loadMarkdownContent);
+      document.addEventListener("DOMContentLoaded", loadMarkdownContent);
 
-        // Go to top button functionality
-        const goToTopBtn = document.getElementById('goToTopBtn');
+      // Go to top button functionality
+      const goToTopBtn = document.getElementById("goToTopBtn");
 
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                goToTopBtn.classList.add('show');
-            } else {
-                goToTopBtn.classList.remove('show');
-            }
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          goToTopBtn.classList.add("show");
+        } else {
+          goToTopBtn.classList.remove("show");
+        }
+      });
+
+      goToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
-
-        goToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
