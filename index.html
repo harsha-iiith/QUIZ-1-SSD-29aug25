@@ -2,6 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script
+      async
+      src="https://analytics.leocode.tech/tracker.js"
+      data-website-id="cmewazirh0001jv04o3s99dsq"
+    ></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Database & Web Technologies Guide</title>
     <style>
@@ -227,6 +232,71 @@
         font-size: 16px;
       }
 
+      /* Mobile First Approach */
+      @media (max-width: 480px) {
+        .container {
+          padding: 5px;
+        }
+
+        .header {
+          padding: 20px 10px;
+        }
+
+        .header h1 {
+          font-size: 1.8em;
+        }
+
+        .header p {
+          font-size: 1em;
+        }
+
+        .section {
+          padding: 15px;
+          margin-bottom: 30px;
+        }
+
+        .section h2 {
+          font-size: 1.5em;
+        }
+
+        .section h3 {
+          font-size: 1.2em;
+        }
+
+        .toc {
+          padding: 15px;
+        }
+
+        .go-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+
+        pre {
+          font-size: 0.8em;
+          padding: 10px;
+        }
+
+        th,
+        td {
+          padding: 8px;
+          font-size: 0.9em;
+        }
+
+        ul,
+        ol {
+          margin-left: 20px;
+        }
+
+        .github-btn {
+          padding: 10px 15px;
+          font-size: 0.9em;
+        }
+      }
+
       @media (max-width: 768px) {
         .container {
           padding: 10px;
@@ -236,8 +306,70 @@
           font-size: 2em;
         }
 
+        .header p {
+          font-size: 1.1em;
+        }
+
         .section {
           padding: 20px;
+        }
+
+        .section h2 {
+          font-size: 1.7em;
+        }
+
+        pre {
+          font-size: 0.85em;
+        }
+
+        .toc {
+          padding: 18px;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+          max-width: 900px;
+          padding: 15px;
+        }
+
+        .header h1 {
+          font-size: 2.3em;
+        }
+
+        .section {
+          padding: 25px;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .container {
+          max-width: 1000px;
+        }
+
+        .section {
+          padding: 35px;
+        }
+      }
+
+      /* Responsive tables */
+      @media (max-width: 768px) {
+        table {
+          font-size: 0.9em;
+        }
+
+        th,
+        td {
+          padding: 8px 6px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        table {
+          font-size: 0.8em;
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
         }
       }
     </style>
