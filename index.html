@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database & Web Technologies Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 3px solid #007acc;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #007acc;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .section h3 {
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            color: #333;
+        }
+
+        .section h4 {
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            color: #555;
+        }
+
+        .sql {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .sql h2 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .nosql {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .nosql h2 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .css {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .css h2 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .html {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .html h2 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        pre {
+            background-color: rgba(0,0,0,0.1);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        code {
+            background-color: rgba(0,0,0,0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        th, td {
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(0,0,0,0.2);
+            font-weight: bold;
+        }
+
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .toc h3 {
+            color: #007acc;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc a {
+            color: #007acc;
+            text-decoration: none;
+            padding: 5px 0;
+            display: block;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Database & Web Technologies Guide</h1>
+            <p>A comprehensive guide covering SQL, NoSQL, CSS, and HTML</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#sql">1. SQL - Structured Query Language</a></li>
+                <li><a href="#nosql">2. NoSQL - Unstructured Databases</a></li>
+                <li><a href="#css">3. CSS - Cascading Style Sheets</a></li>
+                <li><a href="#html">4. HTML - HyperText Markup Language</a></li>
+            </ul>
+        </div>
+
+        <section id="sql" class="section sql">
+            <h2>SQL - Structured Query Language</h2>
+            
+            <h3>Data</h3>
+            <p>It is referred to as a collection of values that provide some information.</p>
+
+            <h3>Entity Relationship Data Model</h3>
+            <p>The Entity-Relationship (ER) model is a critical concept in structured databases, primarily used for designing and visualizing the structure of a database.</p>
+            
+            <p>The ER model consists of three main components:</p>
+            <ul>
+                <li><strong>Entities</strong>: Objects or concepts about which data is stored</li>
+                <li><strong>Attributes</strong>: Properties or characteristics of entities</li>
+                <li><strong>Relationships</strong>: Associations between entities</li>
+            </ul>
+
+            <h3>SQL - CRUD Operations</h3>
+            <p>This covers basic CRUD (Create, Read, Update, Delete) operations and JOINs</p>
+
+            <h4>Data Definition Language (DDL)</h4>
+            <p>DDL commands are used to define and modify the structure of database objects such as tables, indexes, and schemas.</p>
+            
+            <ul>
+                <li><strong>CREATE</strong>: Creates new database objects</li>
+                <li><strong>ALTER</strong>: Modifies existing database objects</li>
+                <li><strong>DROP</strong>: Deletes existing database objects</li>
+                <li><strong>TRUNCATE</strong>: Removes all records from a table but retains structure</li>
+            </ul>
+
+            <h4>Data Manipulation Language (DML)</h4>
+            <p>DML commands are used for manipulating data within existing tables.</p>
+            
+            <ul>
+                <li><strong>INSERT</strong>: Adds new records to a table</li>
+                <li><strong>UPDATE</strong>: Modifies existing records</li>
+                <li><strong>DELETE</strong>: Removes records from a table</li>
+            </ul>
+
+            <h4>Example SQL Commands</h4>
+            <pre><code>-- Create a table
+CREATE TABLE Employees (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(255),
+    Age INT,
+    Email VARCHAR(255)
+);
+
+-- Insert data
+INSERT INTO Employees (ID, Name, Age, Email) 
+VALUES (1, 'John Doe', 30, 'john@example.com');
+
+-- Select data
+SELECT * FROM Employees WHERE Age > 25;
+
+-- Update data
+UPDATE Employees SET Age = 31 WHERE ID = 1;
+
+-- Delete data
+DELETE FROM Employees WHERE ID = 1;</code></pre>
+        </section>
+
+        <section id="nosql" class="section nosql">
+            <h2>NoSQL - Unstructured Databases</h2>
+            
+            <h3>What are Unstructured Databases?</h3>
+            <p>An <strong>unstructured database</strong> refers to any system designed to store, manage, and process data that does not follow a predefined model—such as tables with rows and columns—used in relational (structured) databases.</p>
+
+            <h3>Characteristics of Unstructured Data</h3>
+            <ul>
+                <li><strong>No predefined schema</strong>: Data doesn't fit into rigid tables or fields</li>
+                <li><strong>Diverse formats</strong>: May be text, images, video, audio, logs, social posts</li>
+                <li><strong>Context-dependent</strong>: Meaning is embedded within the data</li>
+                <li><strong>Massive volume</strong>: Often 70-90% of accumulated data is unstructured</li>
+                <li><strong>Complex to index and query</strong>: Needs advanced tools for search and analysis</li>
+            </ul>
+
+            <h3>Types of Unstructured Databases</h3>
+            <table>
+                <tr>
+                    <th>Database Type</th>
+                    <th>Description</th>
+                    <th>Examples</th>
+                </tr>
+                <tr>
+                    <td>Document Stores</td>
+                    <td>Store JSON, XML, or similar flexible documents</td>
+                    <td>MongoDB, Couchbase</td>
+                </tr>
+                <tr>
+                    <td>Key-Value Stores</td>
+                    <td>Store data as pairs—any object can be the value</td>
+                    <td>Redis, Amazon DynamoDB</td>
+                </tr>
+                <tr>
+                    <td>Wide-Column</td>
+                    <td>Organize data in columns for big datasets</td>
+                    <td>Apache Cassandra, HBase</td>
+                </tr>
+                <tr>
+                    <td>Object Storage</td>
+                    <td>Store multimedia, files, and BLOBs with metadata</td>
+                    <td>Amazon S3, Azure Blob</td>
+                </tr>
+            </table>
+
+            <h3>Document Databases & JSON</h3>
+            <p>Document databases store data as self-contained documents, typically in JSON format:</p>
+            
+            <pre><code>{
+  "_id": "12345",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "zip": "12345"
+  },
+  "orders": [
+    {"order_id": "A123", "total": 250},
+    {"order_id": "B456", "total": 175}
+  ]
+}</code></pre>
+
+            <h3>MongoDB Example Operations</h3>
+            <pre><code>// Insert document
+db.users.insertOne({
+  name: "Jane Smith",
+  age: 28,
+  city: "New York"
+});
+
+// Find documents
+db.users.find({age: {$gte: 25}});
+
+// Update document
+db.users.updateOne(
+  {name: "Jane Smith"},
+  {$set: {age: 29}}
+);
+
+// Aggregate data
+db.sales.aggregate([
+  {$group: {_id: "$category", total: {$sum: "$amount"}}},
+  {$sort: {total: -1}}
+]);</code></pre>
+        </section>
+
+        <section id="css" class="section css">
+            <h2>CSS - Cascading Style Sheets</h2>
+            
+            <h3>What is CSS?</h3>
+            <p>CSS, or Cascading Style Sheets, is a stylesheet language used in web development to control the layout and presentation of web pages. It separates content from presentation, making websites easier to maintain and update.</p>
+
+            <h3>Importance of CSS</h3>
+            <ul>
+                <li><strong>Separation of concerns</strong>: Separates content (HTML) from presentation (CSS)</li>
+                <li><strong>Consistent styling</strong>: Enables consistent design across multiple pages</li>
+                <li><strong>Responsive design</strong>: Allows websites to adapt to different screen sizes</li>
+                <li><strong>Enhanced user experience</strong>: Creates interactive elements and animations</li>
+                <li><strong>Faster loading</strong>: External CSS files can be cached by browsers</li>
+            </ul>
+
+            <h3>CSS Syntax</h3>
+            <p>CSS syntax consists of a selector and a declaration block:</p>
+            
+            <pre><code>selector {
+  property1: value1;
+  property2: value2;
+}</code></pre>
+
+            <h3>Types of CSS</h3>
+            <ol>
+                <li><strong>Inline CSS</strong>: Applied directly to HTML elements using the style attribute</li>
+                <li><strong>Internal CSS</strong>: Defined within the HTML document using &lt;style&gt; tags</li>
+                <li><strong>External CSS</strong>: Stored in separate .css files and linked to HTML</li>
+            </ol>
+
+            <h3>CSS Selectors</h3>
+            <table>
+                <tr>
+                    <th>Selector Type</th>
+                    <th>Example</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Element</td>
+                    <td>p { color: blue; }</td>
+                    <td>Selects all paragraph elements</td>
+                </tr>
+                <tr>
+                    <td>Class</td>
+                    <td>.container { width: 80%; }</td>
+                    <td>Selects elements with class="container"</td>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>#header { background: blue; }</td>
+                    <td>Selects element with id="header"</td>
+                </tr>
+                <tr>
+                    <td>Pseudo-class</td>
+                    <td>a:hover { color: red; }</td>
+                    <td>Selects links on hover</td>
+                </tr>
+            </table>
+
+            <h3>Example CSS</h3>
+            <pre><code>/* External CSS file */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007acc;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #005fa3;
+}</code></pre>
+        </section>
+
+        <section id="html" class="section html">
+            <h2>HTML - HyperText Markup Language</h2>
+            
+            <h3>What is HTML?</h3>
+            <p>HTML, or Hypertext Markup Language, is the standard markup language used for creating web pages. It defines the structure and layout of content on the internet using a series of elements represented by tags.</p>
+
+            <h3>HTML Tag Structure</h3>
+            <p>Most HTML tags consist of two parts:</p>
+            <ul>
+                <li><strong>Opening Tag</strong>: Begins the element, e.g., &lt;html&gt;</li>
+                <li><strong>Closing Tag</strong>: Ends the element, e.g., &lt;/html&gt;</li>
+            </ul>
+
+            <h3>Common HTML Tags</h3>
+            <table>
+                <tr>
+                    <th>Tag</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>&lt;html&gt;</td>
+                    <td>Defines the root of an HTML document</td>
+                </tr>
+                <tr>
+                    <td>&lt;head&gt;</td>
+                    <td>Contains meta-information about the document</td>
+                </tr>
+                <tr>
+                    <td>&lt;title&gt;</td>
+                    <td>Specifies the title shown in browser's title bar</td>
+                </tr>
+                <tr>
+                    <td>&lt;body&gt;</td>
+                    <td>Contains the visible content of the document</td>
+                </tr>
+                <tr>
+                    <td>&lt;h1&gt; to &lt;h6&gt;</td>
+                    <td>Defines headings of different sizes</td>
+                </tr>
+                <tr>
+                    <td>&lt;p&gt;</td>
+                    <td>Defines a paragraph of text</td>
+                </tr>
+                <tr>
+                    <td>&lt;img&gt;</td>
+                    <td>Embeds images into the page</td>
+                </tr>
+                <tr>
+                    <td>&lt;a&gt;</td>
+                    <td>Creates hyperlinks</td>
+                </tr>
+            </table>
+
+            <h3>HTML Document Structure</h3>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Web Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;section id="home"&gt;
+            &lt;h2&gt;Home Section&lt;/h2&gt;
+            &lt;p&gt;This is the main content area.&lt;/p&gt;
+            &lt;img src="image.jpg" alt="Description" width="300"&gt;
+        &lt;/section&gt;
+        
+        &lt;section id="about"&gt;
+            &lt;h2&gt;About Us&lt;/h2&gt;
+            &lt;p&gt;Information about our company.&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2024 My Website. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>HTML Forms</h3>
+            <p>HTML forms are used to collect user input:</p>
+            
+            <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;div&gt;
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text" id="name" name="name" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+        &lt;label for="message"&gt;Message:&lt;/label&gt;
+        &lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+        &lt;input type="checkbox" id="subscribe" name="subscribe"&gt;
+        &lt;label for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+            <h3>HTML Lists and Tables</h3>
+            <pre><code>&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Table --&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;City&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John Doe&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+            &lt;td&gt;New York&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Jane Smith&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;Los Angeles&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+    </div>
+</body>
+</html>
