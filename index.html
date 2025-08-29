@@ -11,11 +11,14 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f5f5f5;
         }
 
         .container {
@@ -23,20 +26,19 @@
             margin: 0 auto;
             padding: 20px;
             background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             min-height: 100vh;
         }
 
         .header {
             text-align: center;
             padding: 40px 0;
-            border-bottom: 3px solid #007acc;
+            border-bottom: 3px solid #333;
             margin-bottom: 40px;
         }
 
         .header h1 {
             font-size: 2.5em;
-            color: #007acc;
+            color: #333;
             margin-bottom: 10px;
         }
 
@@ -50,6 +52,8 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: white;
+            border: 1px solid #ddd;
         }
 
         .section h2 {
@@ -57,6 +61,7 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #eee;
+            color: #333;
         }
 
         .section h3 {
@@ -71,60 +76,22 @@
             color: #555;
         }
 
-        .sql {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .sql h2 {
-            color: white;
-            border-bottom-color: rgba(255,255,255,0.3);
-        }
-
-        .nosql {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        .nosql h2 {
-            color: white;
-            border-bottom-color: rgba(255,255,255,0.3);
-        }
-
-        .css {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-        }
-
-        .css h2 {
-            color: white;
-            border-bottom-color: rgba(255,255,255,0.3);
-        }
-
-        .html {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            color: white;
-        }
-
-        .html h2 {
-            color: white;
-            border-bottom-color: rgba(255,255,255,0.3);
-        }
-
         pre {
-            background-color: rgba(0,0,0,0.1);
+            background-color: #f8f9fa;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
             margin: 15px 0;
             font-size: 0.9em;
+            border: 1px solid #ddd;
         }
 
         code {
-            background-color: rgba(0,0,0,0.1);
+            background-color: #f8f9fa;
             padding: 2px 6px;
             border-radius: 3px;
             font-size: 0.9em;
+            border: 1px solid #ddd;
         }
 
         ul, ol {
@@ -140,17 +107,17 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            background-color: rgba(255,255,255,0.1);
+            background-color: white;
         }
 
         th, td {
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
         }
 
         th {
-            background-color: rgba(0,0,0,0.2);
+            background-color: #f8f9fa;
             font-weight: bold;
         }
 
@@ -159,10 +126,11 @@
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
+            border: 1px solid #ddd;
         }
 
         .toc h3 {
-            color: #007acc;
+            color: #333;
             margin-bottom: 15px;
         }
 
@@ -172,7 +140,7 @@
         }
 
         .toc a {
-            color: #007acc;
+            color: #333;
             text-decoration: none;
             padding: 5px 0;
             display: block;
@@ -180,6 +148,35 @@
 
         .toc a:hover {
             text-decoration: underline;
+        }
+
+        .go-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #333;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .go-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .go-to-top:hover {
+            background-color: #555;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
@@ -219,46 +216,48 @@
             </ul>
         </div>
 
-        <section id="sql-theory" class="section sql">
+        <section id="sql-theory" class="section">
             <h2>SQL Theory</h2>
             <div id="sql-theory-content">Loading SQL theory content...</div>
         </section>
 
-        <section id="sql-activity" class="section sql">
+        <section id="sql-activity" class="section">
             <h2>SQL Activity</h2>
             <div id="sql-activity-content">Loading SQL activity content...</div>
         </section>
 
-        <section id="nosql-theory" class="section nosql">
+        <section id="nosql-theory" class="section">
             <h2>NoSQL Theory</h2>
             <div id="nosql-theory-content">Loading NoSQL theory content...</div>
         </section>
 
-        <section id="nosql-activity" class="section nosql">
+        <section id="nosql-activity" class="section">
             <h2>NoSQL Activity</h2>
             <div id="nosql-activity-content">Loading NoSQL activity content...</div>
         </section>
 
-        <section id="css-theory" class="section css">
+        <section id="css-theory" class="section">
             <h2>CSS Theory</h2>
             <div id="css-theory-content">Loading CSS theory content...</div>
         </section>
 
-        <section id="css-activity" class="section css">
+        <section id="css-activity" class="section">
             <h2>CSS Activity</h2>
             <div id="css-activity-content">Loading CSS activity content...</div>
         </section>
 
-        <section id="html-theory" class="section html">
+        <section id="html-theory" class="section">
             <h2>HTML Theory</h2>
             <div id="html-theory-content">Loading HTML theory content...</div>
         </section>
 
-        <section id="html-activity" class="section html">
+        <section id="html-activity" class="section">
             <h2>HTML Activity</h2>
             <div id="html-activity-content">Loading HTML activity content...</div>
         </section>
     </div>
+
+    <button class="go-to-top" id="goToTopBtn" title="Go to top">↑</button>
 
     <script>
         async function loadMarkdownContent() {
@@ -287,6 +286,24 @@
         }
 
         document.addEventListener('DOMContentLoaded', loadMarkdownContent);
+
+        // Go to top button functionality
+        const goToTopBtn = document.getElementById('goToTopBtn');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                goToTopBtn.classList.add('show');
+            } else {
+                goToTopBtn.classList.remove('show');
+            }
+        });
+
+        goToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
